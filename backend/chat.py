@@ -6,11 +6,10 @@ import httpx
 
 load_dotenv()
 
-# Створюємо транспорт, який не використовує проксі
 transport = httpx.HTTPTransport(proxy=None)
 http_client = httpx.Client(transport=transport)
 
-# Ініціалізуємо OpenAI клієнт з кастомним httpx клієнтом
+# Кастомний httpx клієнт бо проблеми через статичне DNS на локалі
 client = OpenAI(http_client=http_client)
 
 chat_history: List[Dict[str, str]] = [

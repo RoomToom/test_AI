@@ -6,7 +6,7 @@ from chat import ask_llm
 
 app = FastAPI()
 
-# Дозволяємо звернення з фронту
+# Критична вразливість для рівня продашену
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
